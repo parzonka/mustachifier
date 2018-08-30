@@ -14,7 +14,7 @@ import com.github.mustachejava.MustacheFactory;
 
 public class Mustachifier {
 
-  public <T> String fillFromObject(String template, T values) {
+  public static <T> String fillFromObject(String template, T values) {
     MustacheFactory mf = new DefaultMustacheFactory();
     Mustache m = mf.compile(new StringReader(template), "");
     StringWriter writer = new StringWriter();
@@ -27,7 +27,7 @@ public class Mustachifier {
     }
   }
 
-  public String fillFromYaml(String template, String yaml) {
+  public static String fillFromYaml(String template, String yaml) {
     Yaml yamlParser = new Yaml();
     Map<String, Object> parsed = yamlParser.load(yaml);
     MustacheFactory mf = new DefaultMustacheFactory();
