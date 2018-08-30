@@ -17,6 +17,15 @@ public class MustachifierTest {
     assertEquals("Hello Alice!", result);
   }
 
+  @Test
+  public void shouldFillTemplateFromYaml() throws Exception {
+    Mustachifier mustachifier = new Mustachifier();
+    String template = "Hello {{name}}!";
+    String yaml = "name: Alice\n";
+    String result = mustachifier.fillFromYaml(template, yaml);
+    assertEquals("Hello Alice!", result);
+  }
+
   @Value
   class Values {
 

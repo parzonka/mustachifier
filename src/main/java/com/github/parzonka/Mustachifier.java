@@ -23,4 +23,8 @@ public class Mustachifier {
       throw new UncheckedIOException(e);
     }
   }
+
+  public String fillFromYaml(String template, String yaml) {
+    return null;
+  }
 }
