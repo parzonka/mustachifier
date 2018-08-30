@@ -18,12 +18,30 @@ public class MustachifierTest {
   }
 
   @Test
-  public void shouldFillTemplateFromYaml() throws Exception {
+  public void shouldFillSimpleTemplateFromYaml() throws Exception {
     Mustachifier mustachifier = new Mustachifier();
     String template = "Hello {{name}}!";
     String yaml = "name: Alice\n";
     String result = mustachifier.fillFromYaml(template, yaml);
     assertEquals("Hello Alice!", result);
+  }
+
+  @Test
+  public void shouldFillDeeperTemplateFromYaml() throws Exception {
+    Mustachifier mustachifier = new Mustachifier();
+    String template = "Hello {{some.name}}!";
+    String yaml = "some:\n  name: Alice\n";
+    String result = mustachifier.fillFromYaml(template, yaml);
+    assertEquals("Hello Alice!", result);
+  }
+
+  @Test
+  public void shouldFillDeeperTemplateFromYaml2() throws Exception {
+    Mustachifier mustachifier = new Mustachifier();
+    String template = "{{#names}}\n{{.}}\n{{/names}}";
+    String yaml = "names:\n  - Foo\n  - Bar\n";
+    String result = mustachifier.fillFromYaml(template, yaml);
+    assertEquals("Foo\nBar\n", result);
   }
 
   @Value
