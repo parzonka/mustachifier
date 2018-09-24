@@ -1,4 +1,4 @@
-package com.github.parzonka;
+package com.github.parzonka.mustachifier;
 
 import java.io.IOException;
 import java.io.StringReader;

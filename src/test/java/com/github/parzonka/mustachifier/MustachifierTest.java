@@ -1,8 +1,10 @@
-package com.github.parzonka;
+package com.github.parzonka.mustachifier;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.github.parzonka.mustachifier.Mustachifier;
 
 import lombok.Value;
 
